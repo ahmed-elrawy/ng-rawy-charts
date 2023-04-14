@@ -1,10 +1,13 @@
 {
   "name": "ng-rawy-chart",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-rawy-lib": "ng build rawy-gantt-chart",
+    "watch-rawy-lib": "rawy-gantt-chart",
+
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
