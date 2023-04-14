@@ -2,7 +2,7 @@
 
 ng-rawy-charts is a very simple Angular charts component 
 
-![rawy-charts screenshot](https://github.com/ahmed-elrawy/ng-rawy-charts/assets/images/rawy-gannt.png)
+![rawy-charts screenshot](https://github.com/ahmed-elrawy/ng-rawy-charts/blob/main/assets/images/rawy-gannt.png)
 
 ## Features
 
