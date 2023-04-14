@@ -1,0 +1,105 @@
+<!-- mat-elevation-z8 -->
+
+<div [ngClass]="'theme-material'" class="container  ">
+  <div class="line" [ngStyle]="{left:line+'px'}"></div>
+  <div class="taskTableWrapper " #scrollOne id="timeline">
+    <div class="side-task-header">
+      <div class="d-flex justify-content-around">
+        <span>title</span><span>Duration</span><span>Progress</span>
+      </div>
+
+    </div>
+    <div class="side-task-body">
+      <cdk-accordion class="example-accordion">
+        <cdk-accordion-item *ngFor="let task of tasks; let index = index;" (click)="onTaskClick(task)"
+          #accordionItem="cdkAccordionItem" class="example-accordion-item" role="button" tabindex="0"
+          [attr.id]="'accordion-header-' + index" [attr.aria-expanded]="accordionItem.expanded"
+          [attr.aria-controls]="'accordion-body-' + index">
+          <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+            <div class="d-flex justify-content-around">
+              <span>
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+                </span>
+                {{task.label}}</span>
+
+              <span>Duration</span>
+              <span>Progress</span>
+            </div>
+
+
+          </div>
+          <div class="" role="region" [style.display]="accordionItem.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-' + index" [attr.aria-labelledby]="'accordion-header-' + index"
+            *ngFor="let subTask of task.subTasks">
+            <div class="accordion-sub-item">sub task</div>
+
+          </div>
+        </cdk-accordion-item>
+
+
+      </cdk-accordion>
+    </div>
+
+  </div>
+  <div id="timelineWrapper" class="timelineWrapper" (scroll)="scrollOne.scrollTop = scrollTwo.scrollTop ;
+     scroll( scrollOne.scrollLeft)" #scrollTwo>
+    <table class="timeline ">
+
+      <thead>
+        <tr>
+          <th *ngFor="let item of [].constructor(workingDays); let i = index" [ngStyle]="{width: cellWidth+'px' }">
+            {{ dates[i] }}
+
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <div class="row" *ngFor="let task of tasks  let i= index" [ngStyle]="{
+            height: (task.subTasks!.length > 0 && task.isHidden ? (task.subTasks!.length * 30 )+(task.subTasks!.length *6): 30 ) + 'px' 
+          }">
+          <div 
+              *ngIf="!task.isHidden ; else elseBlock " 
+              (click)="onTaskClick(task)" 
+              class="taskBar d-flex justify-content-between"
+              [matTooltip]="'label: '+ task.label+'\nstart: '+task.start+'\nend: '+ task.end "
+              matTooltipClass="gantt-tooltip" [ngStyle]="{
+              left: task.offset + 'px',
+              width: task.width + 'px',
+              'background-color': task.color
+          }" >
+            <span class="" resize  (updateSize)="updatedSize($event, i, 'left')"></span>
+            <span class="" resize  (updateSize)="updatedSize($event, i,'right')"></span>
+          </div>
+          <ng-template #elseBlock >
+            <div  
+              (click)="onTaskClick(task)"
+              [ngStyle]="{
+              display: 'inline-block',
+              position: 'relative',
+              left: task.offset + 'px',
+              width: task.width + 'px',
+              'background-color': task.color+'33  '
+            }">
+              <div *ngFor="let subTask of task.subTasks;let j= index" class="taskBar d-flex justify-content-between  "
+                [matTooltip]="'label: '+ subTask.label+'\nstart: '+subTask.start+'\nend: '+ subTask.end "
+                matTooltipClass="gantt-tooltip" [ngStyle]="{
+                left: $any((subTask.offset||0) - (task.offset||0) -5) + 'px',
+                width: subTask.width + 'px',
+               ' margin-left':10+'px',
+                display: 'block',
+              'background-color': subTask.color
+
+            }"
+           >
+                <!-- <p>{{subTask.start}} to {{subTask.end}}</p> -->
+                <span class="" resize  (updateSize)="updatedSize($event, i, 'left',j)"></span>
+              <span class="" resize  (updateSize)="updatedSize($event, i,'right',j)"></span>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </tbody>
+    </table>
+  </div>
+</div>

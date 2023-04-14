@@ -1,0 +1,37 @@
+{
+  "name": "ng-rawy-charts",
+  "version": "0.0.1",
+  "author": {
+    "name": "Ahmed Rawy",
+    "email": "aelrawy29@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "component",
+    "ng",
+    "gantt",
+    "chart",
+    "gantt chart",
+    "daily",
+    "timeline",
+    "schedule",
+    "scheduler",
+    "planboard"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tahaerden/npm-workspace/tree/master/projects/ngx-daily-gantt-chart"
+  },
+  "peerDependencies": {
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0",
+    "bootstrap": "^5.2.3",
+    "@angular/material": "^15.2.3"
+
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  
+  "sideEffects": false
+}
