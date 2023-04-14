@@ -2,7 +2,7 @@
 
 ng-rawy-charts is a very simple Angular charts component 
 
-![rawy-charts screenshot](https://github.com/ahmed-elrawy/ng-rawy-charts/assets/images/rawy-gannt.png)
+![rawy-charts screenshot](https://github.com/ahmed-elrawy/ng-rawy-charts/blob/main/assets/images/rawy-gannt.png)
 
 ## Features
 
@@ -24,14 +24,14 @@ Include the module in your component as:
 Add the component in your HTML with the following inputs:
 
 ```HTML
-<lib-rawy-gantt-chart
+<rawy-gantt-chart
  [dayStart]="'2023/1/1'"
  [dayEnd]="'2023/7/1'"
  [beforeStartDay]="3"
  [afterEndDay]="3"
  [tasks]="tasks"
  [cellWidth]="120">
-</lib-rawy-gantt-chart>
+</rawy-gantt-chart>
 ```
 
 Your tasks array should look like the following:
