@@ -1,27 +1,128 @@
 # NgRawyCharts
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+ng-rawy-charts is a very simple Angular charts component 
 
-## Development server
+![rawy-charts screenshot](https://github.com/ahmed-elrawy/ng-rawy-charts/assets/images/rawy-gannt.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+1. Dynamic work for each day.
+2. Expandable sub tasks.
+3. Multiple color-coded task statuses per task.
+5. Tooltips with additional info for the bars and statuses on timeline.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+Run `npm install ng-rawy-charts` or download zip from github / clone repo.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Running unit tests
+Include the module in your component as:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`import { RawyGanttChartModule } from 'ng-rawy-charts';`
 
-## Running end-to-end tests
+Add the component in your HTML with the following inputs:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```HTML
+<lib-rawy-gantt-chart
+ [dayStart]="'2023/1/1'"
+ [dayEnd]="'2023/7/1'"
+ [beforeStartDay]="3"
+ [afterEndDay]="3"
+ [tasks]="tasks"
+ [cellWidth]="120">
+</lib-rawy-gantt-chart>
+```
 
-## Further help
+Your tasks array should look like the following:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```TS
+import { GanntTask } from 'ng-rawy-charts';
+
+  tasks:GanntTask[] = [
+    {
+      id: 1,
+      label: 'task 1',
+      description: 'description for task 1',
+      start: '2023/4/9',
+      end: '2023/4/14',
+
+      subTasks: [
+        {
+          id:1,
+          description:'desc',
+          label: 'sub task ',
+          start: '2023/4/9',
+          end: '2023/4/10',
+        },
+        {
+          id:2,
+          description:'desc',
+          label: 'sub task ',
+          start: '2023/4/9',
+          end: '2023/4/12',
+        },
+        {
+          id:3,
+          description:'desc',
+          label: 'sub task ',
+          start: '2023/4/10',
+          end: '2023/4/14',
+        },
+        {
+          id:4,
+          description:'desc',
+          label: 'sub task ',
+          start: '2023/4/13',
+          end: '2023/4/14',
+        },
+        
+
+        
+      ]
+    },
+    {
+      id: 2,
+      label: 'task 2',
+      description: 'description for task 1',
+      start: '2023/4/7',
+      end: '2023/4/10',
+
+      subTasks: [
+        { 
+          id:1,
+          description:'desc',
+          label: 'sub task ',
+          start: '2023/4/6',
+          end: '2023/4/8',
+        },
+        {
+          id:2,
+          description:'desc',
+          label: 'sub task ',
+          start: '2023/4/9',
+          end: '2023/4/10',
+        }
+
+      ]
+    },
+    {
+      id: 3,
+      label: 'task 2',
+      description: 'description for task 1',
+      start: '2023/4/11',
+      end: '2023/4/15',
+
+      subTasks: [
+        {
+          id:1,
+          description:'desc',
+          label:'A',
+          start: '2023/4/11',
+          end: '2023/4/15',
+        },
+
+      ]
+    },
+  ]
+```
