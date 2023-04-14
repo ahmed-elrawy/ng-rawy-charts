@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GanntTask } from 'rawy-gantt-chart';
+import { GanntTask } from './rawy-gantt-chart.interface';
 
 @Component({
   selector: 'rawy-gantt-chart',
