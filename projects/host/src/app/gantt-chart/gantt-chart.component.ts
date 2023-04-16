@@ -1,13 +1,15 @@
 import { Component, Input } from '@angular/core';
-import { GanntTask } from './rawy-gantt-chart.interface';
+import { GanntTask } from 'rawy-gantt-chart';
+
+
 
 @Component({
-  selector: 'rawy-gantt-chart',
-  templateUrl:'./rawy-gantt-chart.component.html',
-  styleUrls: ['./rawy-gantt-chart.component.scss']
-
+  selector: 'gantt-chart',
+  templateUrl: 'gantt-chart.component.html',
+  styleUrls: ['gantt-chart.component.scss'] 
 })
-export class RawyGanttChartComponent {
+export class GanttCharComponent  {
+ 
 
   @Input() dayStart='';
   @Input() dayEnd='';
@@ -115,8 +117,7 @@ export class RawyGanttChartComponent {
   scroll(s:any){}
 
   updatedSize(size:any, index:any ,dr:string,childIndex?:number){
-       
-        if( !this.canResize(dr,size,index, childIndex)) return
+    // this.canResize(index)
 
     if(dr=='right'){
       
@@ -124,7 +125,7 @@ export class RawyGanttChartComponent {
          this.getTask(index, childIndex)['width']  += this.cellWidth;
          this.getTask(index, childIndex)['end'] =  this.incrementDate( this.getTask(index, childIndex)['end'],1)
       }else if(size == -1 &&  this.getTask(index, childIndex)['width']  >this.cellWidth) {
-        // if( !this.canResize(index) && !childIndex) return
+        if( !this.canResize(index) && !childIndex) return
 
         this.getTask(index, childIndex)['width'] += -this.cellWidth
          this.getTask(index, childIndex)['end']  =  this.incrementDate( this.getTask(index, childIndex)['end'],-1)
@@ -159,39 +160,12 @@ export class RawyGanttChartComponent {
     }
   }
 
- 
-
-
-    canResize(dr:string,size:number, index:number, childIndex?:number ) {
-
-      let task :any;
-      if(dr =='right'){
-        if(childIndex == undefined && size<0){//can dec parent to right
-        task = this.tasks[index].subTasks?.filter((e) => (this.dates.indexOf(e.end)+1) > this.dates.indexOf(this.tasks[index].end)) 
-      }else{
-          if(childIndex != undefined && size>0){//can inc child to right
-            task = this.tasks[index].subTasks?.filter((e) => (this.dates.indexOf(e.end)+1) > this.dates.indexOf(this.tasks[index].end)) 
-          }
-      }
-      } else {
-        if(childIndex == undefined){ //can dec child at left 
-          if( size>0){
-            task = this.tasks[index].subTasks?.filter((e) => (this.dates.indexOf(e.start)) <= this.dates.indexOf(this.tasks[index].start)) 
-
-          } else {return true} 
-                 
-        }else{//can inc child at left
-          if(size<0 ){
-            task = this.tasks[index].subTasks?.filter((e) => (this.dates.indexOf(e.start)) == this.dates.indexOf(this.tasks[index].start)) 
-          }else {return true }
-        }
-      }
+  canResize( index:number ) {
+    let task= this.tasks[index].subTasks?.filter((e) => (this.dates.indexOf(e.end)+1) > this.dates.indexOf(this.tasks[index].end)) 
     return  !task?.length   
      
   }
 
 
-
 }
-
 

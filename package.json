@@ -7,7 +7,6 @@
     "build": "ng build",
     "build-rawy-lib": "ng build rawy-gantt-chart",
     "watch-rawy-lib": "rawy-gantt-chart",
-
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"

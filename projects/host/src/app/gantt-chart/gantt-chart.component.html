@@ -84,7 +84,7 @@
               <div *ngFor="let subTask of task.subTasks;let j= index" class="taskBar d-flex justify-content-between  "
                 [matTooltip]="'label: '+ subTask.label+'\nstart: '+subTask.start+'\nend: '+ subTask.end "
                 matTooltipClass="gantt-tooltip" [ngStyle]="{
-                left: $any((subTask.offset||0) - (task.offset||0)) + 'px',
+                left: $any((subTask.offset||0) - (task.offset||0) -5) + 'px',
                 width: subTask.width + 'px',
                ' margin-left':10+'px',
                 display: 'block',
@@ -93,7 +93,7 @@
             }"
            >
                 <!-- <p>{{subTask.start}} to {{subTask.end}}</p> -->
-              <span class="" resize  (updateSize)="updatedSize($event, i, 'left',j)"></span>
+                <span class="" resize  (updateSize)="updatedSize($event, i, 'left',j)"></span>
               <span class="" resize  (updateSize)="updatedSize($event, i,'right',j)"></span>
               </div>
             </div>

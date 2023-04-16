@@ -16,6 +16,7 @@ import {MatMenuModule} from '@angular/material/menu';
 
 import { MatTooltipModule } from "@angular/material/tooltip";
 import {CdkAccordionModule} from '@angular/cdk/accordion';
+import { ResizableDirective } from './resizable.directive';
 
 
 const MATERIAL_MODULES = [
@@ -36,7 +37,8 @@ const MATERIAL_MODULES = [
 
 @NgModule({
   declarations: [
-    RawyGanttChartComponent
+    RawyGanttChartComponent,
+    ResizableDirective
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ const MATERIAL_MODULES = [
     MATERIAL_MODULES
   ],
   exports: [
-    RawyGanttChartComponent
+    RawyGanttChartComponent,
+    ResizableDirective,
   ]
 })
 export class RawyGanttChartModule { }

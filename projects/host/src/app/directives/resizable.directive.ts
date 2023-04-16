@@ -105,11 +105,11 @@ export class ResizableDirective implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.el.nativeElement.style['border-right'] =
-            this.resizableGrabWidth + 'px solid  #54515156';
+            this.resizableGrabWidth + 'px solid darkgrey';
 
 
             this.el.nativeElement.style['border-left'] =
-            this.resizableGrabWidth + 'px solid  #54515156';
+            this.resizableGrabWidth + 'px solid darkgrey';
     }
 
     inDragRegion(evt: any) {

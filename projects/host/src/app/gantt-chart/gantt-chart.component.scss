@@ -1,0 +1,279 @@
+::ng-deep .mat-tooltip {
+  white-space: pre-line; // Allow line break
+}
+  .theme-material {
+    thead {
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    .taskTable {
+      
+      padding: 5px;
+      height: 20px;
+      table {
+        thead {
+          color: rgba(0, 0, 0, 0.54);
+        }
+      }
+      td,
+      th {
+        height: 31px;
+        font-weight: normal;
+      }
+    }
+    .timelineWrapper {
+      tr,
+      .row {
+
+        // border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        th:not(:last-child) {
+          border-right: 1px solid #e0e0e0;
+        }
+        .taskBar {
+          background-color: hsla(0, 0%, 85%, 0.466);
+        }
+      }
+    }
+    .statusBar {
+      background-color: #ee04c8;
+    }
+  }
+  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .container {
+    height: 600px;
+    font-family: Calibri, sans-serif;
+    font-size: 12px;
+    // margin: 20px 0px;
+    padding: 20px 0 0 0;
+  
+  }
+  table {
+    td,
+    th {
+      line-height: 20px;
+    }
+  }
+  .taskTableWrapper {
+    height: 100%;
+    overflow: scroll hidden;
+    display: inline-block;
+    width: calc(30% - 2px);
+  }
+  .taskTable {
+    width: 100%;
+    border-collapse: collapse;
+    tr {
+      white-space: nowrap;
+      th,
+      td {
+        text-align: left;
+        padding: 5px;
+        box-sizing: border-box;
+        height: 30px;
+      }
+    }
+  }
+  .timelineWrapper {
+    height: 100%;
+    overflow: scroll auto;
+    display: inline-block;
+
+    
+    width: 70%;
+  }
+  .timeline {
+
+
+    thead{
+      background-color: #fff;
+      border-radius: 20px;
+      height: 40px;
+
+    }
+
+
+    tr,
+    .row {
+      margin-top: 10px;
+      white-space: nowrap;
+      position: relative;
+      
+      // height: 100px;
+      th {
+        display: inline-block;
+        box-sizing: border-box;
+        // width: 120px; // 1 minute is 2px
+        height: 31px;
+        padding: 5px;
+      }
+      .taskBar {
+        display: inline-block;
+        box-sizing: border-box;
+        margin: 8px 0;
+        height: 27px;
+        text-align: center;
+        // padding: 5px;
+        // border-radius: 7px;
+        position: relative;
+        line-height: 13px;
+      }
+      .statusBar {
+        position: absolute;
+        height: 16px;
+        width: 20px;
+        top: 3px;
+        box-sizing: border-box;
+        margin: 4px 0;
+      }
+      span:first-of-type {
+        // border-radius: 7px 0 0 7px;
+      }
+      span:last-of-type {
+        // border-radius: 0 7px 7px 0;
+      }
+    }
+  }
+  .parentTask {
+    cursor: pointer;
+    &.active {
+      > td:first-child::before {
+        content: '▼ ';
+      }
+    }
+    > td:first-child::before {
+      content: '▶ ';
+    }
+    + tr td:first-child {
+      padding-left: 25px !important;
+    }
+  }
+  ::ng-deep .gantt-tooltip {
+    white-space: pre-line;
+  }
+  
+
+
+
+  .line{
+    position: absolute;
+    // right:  500px;
+    width: 2px;
+    height: 60%;
+    z-index:30;
+    background-color: #ff375fab;
+  }
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .example-accordion {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+
+  }
+  
+  .example-accordion-item {
+    display: block;
+    border: solid 0px #ccc;
+    // width: 1000px;
+  }
+  
+  .example-accordion-item + .example-accordion-item {
+    border-top: none;
+  }
+  
+  .example-accordion-item-header {
+      height: 0px;
+  }
+  
+  .example-accordion-item-description {
+    font-size: 0.85em;
+    color: #999;
+  }
+  
+  .example-accordion-item-header,
+  .example-accordion-item-body {
+    padding: 16px;
+  }
+  
+  .example-accordion-item-header:hover {
+    cursor: pointer;
+    background-color: #eee;
+  }
+  
+  .example-accordion-item:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  
+  .example-accordion-item:last-child {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  
+
+
+
+  .side-task-header{
+    background-color: #fff;
+    border-radius: 7px;
+    height: 40px;
+    margin: 0 15px 15px 0;
+  }
+
+  .side-task-body{
+    position: relative;
+    background-color: #fff;
+    border-radius: 7px;
+    margin: 0 15px 0 0;
+
+    border-radius: 7px;
+    height: 100%;
+  }
+
+  .example-accordion-item-header{
+    height: 40px;
+  }
+
+  .accordion-sub-item{
+    height: 25px !important;
+  }
+
